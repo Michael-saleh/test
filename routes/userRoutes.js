@@ -17,7 +17,7 @@ router.post('/insertMany', async (req, res) => {
 });
 
 // Find all users
-router.get('/findAll', async (req, res) => {
+router.get('/find', async (req, res) => {
   const users = await getDb().collection(collectionName).find().toArray();
   res.json(users);
 });
@@ -29,7 +29,7 @@ router.post('/findOneByEmail', async (req, res) => {
   {
     projection: {
       username: 1,
-      birthYear: 1, // projection values are 1 or 0 only; -1 is not allowed
+      birthYear: 1,
       email: 1,
       _id: 0
     }
